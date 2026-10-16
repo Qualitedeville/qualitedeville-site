@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nos Actions – Qualité de Ville Maisons-Laffitte</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
 
@@ -32,14 +33,14 @@
   <!-- En-tête de la page -->
   <section class="page-header">
     <div class="container">
-      <h1>Nos Actions sur le Terrain</h1>
-      <p>Retrouvez les combats, interventions et projets portés par l'association pour préserver notre cadre de vie à Maisons-Laffitte.</p>
+      <h1 id="actions-page-title">Nos Actions sur le Terrain</h1>
+      <p id="actions-page-subtitle">Retrouvez les combats, interventions et projets portés par l'association pour préserver notre cadre de vie à Maisons-Laffitte.</p>
     </div>
   </section>
 
   <!-- Section Grille des Actions -->
   <section class="section">
-    <div class="container">
+    <div class="container" id="actions-container">
       
       <!-- Action 1 -->
       <article class="action-card">
@@ -47,7 +48,7 @@
         <div class="action-details">
           <span class="action-badge">Biodiversité & Cadre de vie</span>
           <h2>Préservation des arbres et de la végétation urbaine</h2>
-          <p>Veille permanente sur le domaine public et privé pour empêcher les abattages injustifiés d'arbres remarquables et promouvoir le renouvellement de la canopée mansonnière dans le Centre et la Zone Pavillonnaire[cite: 1, 2].</p>
+          <p>Veille permanente sur le domaine public et privé pour empêcher les abattages injustifiés d'arbres remarquables et promouvoir le renouvellement de la canopée mansonnière dans le Centre et la Zone Pavillonnaire.</p>
         </div>
       </article>
 
@@ -57,7 +58,7 @@
         <div class="action-details">
           <span class="action-badge">Urbanisme</span>
           <h2>Suivi du Plan Local d'Urbanisme (PLU) & Projets de construction</h2>
-          <p>Analyse minutieuse des permis de construire déposés et des modifications du PLU. Interventions auprès de la mairie et des promoteurs pour garantir un équilibre architectural et éviter la surdensification des quartiers[cite: 1].</p>
+          <p>Analyse minutieuse des permis de construire déposés et des modifications du PLU. Interventions auprès de la mairie et des promoteurs pour garantir un équilibre architectural et éviter la surdensification des quartiers.</p>
         </div>
       </article>
 
@@ -67,7 +68,7 @@
         <div class="action-details">
           <span class="action-badge">Dialogue & Concertation</span>
           <h2>Accompagnement et représentation des riverains</h2>
-          <p>Écoute et conseil aux habitants confrontés à des projets d'aménagement impactant leur voisinage. Porte-parole des riverains lors des enquêtes publiques et réunions de concertation municipale[cite: 1, 2].</p>
+          <p>Écoute et conseil aux habitants confrontés à des projets d'aménagement impactant leur voisinage. Porte-parole des riverains lors des enquêtes publiques et réunions de concertation municipale.</p>
         </div>
       </article>
 
@@ -77,7 +78,7 @@
         <div class="action-details">
           <span class="action-badge">Sensibilisation</span>
           <h2>Propositions pour une ville durable et végétalisée</h2>
-          <p>Formulation de propositions concrètes destinées à enrichir la trame verte municipale, encourager les mobilités douces et préserver les cœurs d'îlots végétalisés dans toute la commune[cite: 1].</p>
+          <p>Formulation de propositions concrètes destinées à enrichir la trame verte municipale, encourager les mobilités douces et préserver les cœurs d'îlots végétalisés dans toute la commune.</p>
         </div>
       </article>
 
@@ -103,13 +104,14 @@
       <div class="footer-links">
         <h4>Suivez-nous</h4>
         <a href="https://www.facebook.com/qualitedevilleml/" target="_blank">Facebook</a>
-        <p>Contact :<a href="mailto:qualitedevilleml1@gmail.com">contact@qualitedeville.fr</a></p>
+        <p>Contact : <a href="mailto:qualitedevilleml1@gmail.com">contact@qualitedeville.fr</a></p>
       </div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2026 Qualité de Ville Maisons-Laffitte. Tous droits réservés.</p>
     </div>
   </footer>
+
   <!-- Script d'injection Decap CMS -->
   <script>
     fetch('data/actions.json')
