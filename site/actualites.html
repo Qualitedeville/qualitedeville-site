@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actualités – Qualité de Ville Maisons-Laffitte</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- En-tête & Navigation -->
+  <header>
+    <div class="container nav-container">
+      <div class="logo">
+        <a href="index.html">
+          <img src="logo.png" alt="Logo Qualité de Ville Maisons-Laffitte" class="logo-img">
+          <span>Qualité de Ville</span>
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="presentation.html">L'Association</a></li>
+          <li><a href="actions.html">Nos Actions</a></li>
+          <li><a href="actualites.html" class="active">Actualités</a></li>
+          <li><a href="adherer.html" class="btn-nav">Adhérer</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- En-tête de la page -->
+  <section class="page-header">
+    <div class="container">
+      <h1 id="news-page-title">Actualités & Fil d'information</h1>
+      <p id="news-page-subtitle">Suivez toutes les dernières publications et réunions de l'association en temps réel.</p>
+    </div>
+  </section>
+
+  <!-- Section Fil Facebook -->
+  <section class="section">
+    <div class="container text-center">
+      
+      <div class="content-block">
+        <h2 id="facebook-section-title">Dernières publications Facebook</h2>
+        <p id="facebook-section-text" style="margin-bottom: 25px;">Retrouvez ci-dessous le flux d'actualités direct de notre page officielle Facebook.</p>
+
+        <!-- Widget / Embed Facebook -->
+        <div class="facebook-widget-container">
+          <iframe 
+            id="facebook-iframe"
+            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fqualitedevilleml%2F&tabs=timeline&width=500&height=700&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true" 
+            width="500" 
+            height="700" 
+            style="border:none;overflow:hidden;max-width:100%;" 
+            scrolling="no" 
+            frameborder="0" 
+            allowfullscreen="true" 
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+          </iframe>
+        </div>
+
+        <div style="margin-top: 25px;">
+          <a id="facebook-btn" href="https://www.facebook.com/qualitedevilleml/" target="_blank" class="btn btn-secondary" style="color: #1b4332; border-color: #1b4332;">Voir directement sur Facebook</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Pied de page -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-info">
+        <h3>Qualité de Ville – Maisons-Laffitte</h3>
+        <p>Association loi 1901 – Centre, Zone Pavillonnaire et Vieux Maisons.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Suivez-nous</h4>
+        <a href="https://www.facebook.com/qualitedevilleml/" target="_blank">Facebook</a>
+        <p>Contact :<a href="mailto:qualitedevilleml1@gmail.com">contact@qualitedeville.fr</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Qualité de Ville Maisons-Laffitte. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- Script d'injection Decap CMS -->
+  <script>
+    fetch('data/actualites.json')
+      .then(res => res.json())
+      .then(data => {
+        if (data.title) document.getElementById('news-page-title').textContent = data.title;
+        if (data.subtitle) document.getElementById('news-page-subtitle').textContent = data.subtitle;
+        if (data.section_title) document.getElementById('facebook-section-title').textContent = data.section_title;
+        if (data.section_text) document.getElementById('facebook-section-text').textContent = data.section_text;
+        
+        if (data.facebook_url) {
+          const encodedUrl = encodeURIComponent(data.facebook_url);
+          document.getElementById('facebook-iframe').src = `https://www.facebook.com/plugins/page.php?href=${encodedUrl}&tabs=timeline&width=500&height=700&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true`;
+          document.getElementById('facebook-btn').href = data.facebook_url;
+        }
+      })
+      .catch(err => console.log("Affichage statique par défaut :", err));
+  </script>
+
+</body>
+</html>
