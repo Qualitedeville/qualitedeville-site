@@ -1,0 +1,13 @@
+{
+  "title": "Qui sommes-nous ?",
+  "subtitle": "Une association citoyenne engagée pour préserver l'environnement et le cadre de vie à Maisons-Laffitte.",
+  "history_text": "L'association **Qualité de Ville** a été créée en 2021 par des riverains soucieux de préserver le patrimoine naturel et architectural de Maisons-Laffitte.",
+  "mission_text": "Nos objectifs majeurs sont de veiller au respect des règles d'urbanisme, de protéger la biodiversité urbaine (arbres, espaces verts) et d'assurer un dialogue constructif avec la municipalité.",
+  "team": [
+    {
+      "name": "Équipe du Bureau",
+      "role": "Bénévoles engagés",
+      "bio": "Habitants des quartiers Centre, Zone Pavillonnaire et Vieux Maisons."
+    }
+  ]
+}
