@@ -1,0 +1,91 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "site/images"
+public_folder: "/images"
+
+collections:
+  - name: "pages"
+    label: "Gestion des Pages"
+    files:
+      - file: "site/data/accueil.json"
+        label: "Page d'Accueil"
+        name: "accueil"
+        fields:
+          - { label: "Titre du Héro", name: "hero_title", widget: "string" }
+          - { label: "Sous-titre du Héro", name: "hero_subtitle", widget: "text" }
+          - { label: "Titre Présentation", name: "about_title", widget: "string" }
+          - { label: "Texte Présentation (HTML accepté)", name: "about_lead", widget: "text" }
+          - label: "Cartes d'engagements"
+            name: "features"
+            widget: "list"
+            fields:
+              - { label: "Icône / Émoji", name: "icon", widget: "string" }
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+      - file: "site/data/presentation.json"
+        label: "Page L'Association (Présentation)"
+        name: "presentation"
+        fields:
+          - { label: "Titre principal", name: "title", widget: "string" }
+          - { label: "Sous-titre", name: "subtitle", widget: "string" }
+          - { label: "Titre de section (Qui sommes-nous ?)", name: "about_title", widget: "string" }
+          - { label: "Contenu (Qui sommes-nous ?)", name: "about_content", widget: "html" }
+          - label: "Nos Objectifs"
+            name: "objectives"
+            widget: "list"
+            fields:
+              - { label: "Icône / Émoji", name: "icon", widget: "string", required: false }
+              - { label: "Titre de l'objectif", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          - label: "Gouvernance & Chronologie"
+            name: "timeline"
+            widget: "list"
+            fields:
+              - { label: "Date / Période", name: "date", widget: "string" }
+              - { label: "Texte / Nom", name: "text", widget: "string" }
+
+      - file: "site/data/actions.json"
+        label: "Page Nos Actions"
+        name: "actions"
+        fields:
+          - { label: "Titre principal", name: "title", widget: "string" }
+          - { label: "Sous-titre", name: "subtitle", widget: "string" }
+          - label: "Liste des actions"
+            name: "actions_list"
+            widget: "list"
+            fields:
+              - { label: "Icône / Émoji", name: "icon", widget: "string" }
+              - { label: "Catégorie / Badge", name: "badge", widget: "string" }
+              - { label: "Titre de l'action", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+      - file: "site/data/actualites.json"
+        label: "Page Actualités"
+        name: "actualites"
+        fields:
+          - { label: "Titre principal", name: "title", widget: "string" }
+          - { label: "Sous-titre", name: "subtitle", widget: "string" }
+          - { label: "Titre du bloc Facebook", name: "section_title", widget: "string" }
+          - { label: "Texte explicatif", name: "section_text", widget: "text" }
+          - { label: "Lien de la page Facebook", name: "facebook_url", widget: "string" }
+
+      - file: "site/data/adherer.json"
+        label: "Page Adhérer"
+        name: "adherer"
+        fields:
+          - { label: "Titre principal", name: "title", widget: "string" }
+          - { label: "Sous-titre", name: "subtitle", widget: "string" }
+          - label: "Raisons d'adhérer"
+            name: "reasons"
+            widget: "list"
+            fields:
+              - { label: "Icône / Émoji", name: "icon", widget: "string" }
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Titre du bloc d'adhésion", name: "helloasso_title", widget: "string" }
+          - { label: "Texte explicatif", name: "helloasso_text", widget: "text" }
+          - { label: "Lien HelloAsso", name: "helloasso_url", widget: "string" }
+          - { label: "Mention de sécurité", name: "helloasso_note", widget: "string" }
