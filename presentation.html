@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>L'Association – Qualité de Ville Maisons-Laffitte</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
 
@@ -32,8 +33,8 @@
   <!-- En-tête de la page -->
   <section class="page-header">
     <div class="container">
-      <h1>L'Association Qualité de Ville</h1>
-      <p>Découvrez notre histoire, nos engagements et notre organisation au service du cadre de vie mansonnien.</p>
+      <h1 id="page-title">L'Association Qualité de Ville</h1>
+      <p id="page-subtitle">Découvrez notre histoire, nos engagements et notre organisation au service du cadre de vie mansonnien.</p>
     </div>
   </section>
 
@@ -41,14 +42,16 @@
   <section class="section">
     <div class="container">
       <div class="content-block">
-        <h2>Qui sommes-nous ?</h2>
-        <p>Créée en <strong>2021</strong> par <strong>Tania Fumat-Gunter</strong>, l'association <strong>Qualité de Ville – Maisons-Laffitte</strong> est une association loi 1901 regroupant les riverains et habitants des quartiers du <strong>Centre</strong>, de la <strong>Zone Pavillonnaire</strong> et du <strong>Vieux Maisons. </strong></p>
-        <p>Notre initiative est née d'une volonté commune : veiller à la préservation du patrimoine architectural, environnemental et paysager de nos quartiers face aux mutations urbaines rapides.</p>
+        <h2 id="about-title">Qui sommes-nous ?</h2>
+        <div id="about-content">
+          <p>Créée en <strong>2021</strong> par <strong>Tania Fumat-Gunter</strong>, l'association <strong>Qualité de Ville – Maisons-Laffitte</strong> est une association loi 1901 regroupant les riverains et habitants des quartiers du <strong>Centre</strong>, de la <strong>Zone Pavillonnaire</strong> et du <strong>Vieux Maisons. </strong></p>
+          <p>Notre initiative est née d'une volonté commune : veiller à la préservation du patrimoine architectural, environnemental et paysager de nos quartiers face aux mutations urbaines rapides.</p>
+        </div>
       </div>
 
       <div class="content-block">
         <h2>Nos Objectifs</h2>
-        <ul class="styled-list">
+        <ul class="styled-list" id="objectives-list">
           <li>🌿 <strong>Protéger la biodiversité et le patrimoine végétal :</strong> Veiller à la sauvegarde des arbres centenaires, des espaces verts et promouvoir la végétalisation urbaine.</li>
           <li>🏛️ <strong>Soutenir un urbanisme maîtrisé :</strong> Analyser les projets d'aménagement et le Plan Local d'Urbanisme (PLU) pour éviter les densifications excessives ou inadaptées.</li>
           <li>📢 <strong>Répandre la voix des habitants :</strong> Dialoguer avec les élus, les services municipaux et les promoteurs pour faire respecter la tranquillité et le cadre de vie des riverains.</li>
@@ -59,15 +62,14 @@
       <div class="content-block"> 
         <h2>Gouvernance & Présidence</h2>
         <p>L'association est animée par un bureau.</p>
-        <div class="timeline">
+        <div class="timeline" id="timeline-container">
           <div class="timeline-item">
-            <span class="date"> 2021</span>
+            <span class="date">2021</span>
             <p>Fondation de l'association en 2021 par <strong>Tania Fumat-Gunter</strong></p>
           </div>
-        <div class="timeline">
           <div class="timeline-item">
             <span class="date">Depuis 2025</span>
-            <p> <strong>Sandrine Bartissol</strong></p>
+            <p><strong>Sandrine Bartissol</strong></p>
           </div>
         </div>
       </div>
@@ -77,8 +79,8 @@
   <!-- Appel à l'action -->
   <section class="section cta-section">
     <div class="container text-center">
-      <h2>Envie de faire bouger les choses avec nous ?</h2>
-      <p>Rejoignez nos membres pour défendre le cadre de vie de votre quartier.</p>
+      <h2 id="cta-title">Envie de faire bouger les choses avec nous ?</h2>
+      <p id="cta-text">Rejoignez nos membres pour défendre le cadre de vie de votre quartier.</p>
       <a href="https://www.helloasso.com/associations/qualite-de-ville-maisons-laffitte" target="_blank" class="btn btn-primary btn-large">Devenir Membre sur HelloAsso</a>
     </div>
   </section>
@@ -93,13 +95,38 @@
       <div class="footer-links">
         <h4>Suivez-nous</h4>
         <a href="https://www.facebook.com/qualitedevilleml/" target="_blank">Facebook</a>
-        <p>Contact :<a href="mailto:qualitedevilleml1@gmail.com">contact@qualitedeville.fr</a></p>
+        <p>Contact : <a href="mailto:qualitedevilleml1@gmail.com">contact@qualitedeville.fr</a></p>
       </div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2026 Qualité de Ville Maisons-Laffitte. Tous droits réservés.</p>
     </div>
   </footer>
+
+  <!-- Script pour charger les données modifiées dans Decap CMS -->
+  <script>
+    fetch('data/presentation.json')
+      .then(res => res.json())
+      .then(data => {
+        if (data.title) document.getElementById('page-title').textContent = data.title;
+        if (data.subtitle) document.getElementById('page-subtitle').textContent = data.subtitle;
+        if (data.about_title) document.getElementById('about-title').textContent = data.about_title;
+        if (data.about_content) document.getElementById('about-content').innerHTML = data.about_content;
+        
+        if (data.objectives && data.objectives.length) {
+          document.getElementById('objectives-list').innerHTML = data.objectives.map(obj => 
+            `<li>${obj.icon || ''} <strong>${obj.title} :</strong> ${obj.description}</li>`
+          ).join('');
+        }
+
+        if (data.timeline && data.timeline.length) {
+          document.getElementById('timeline-container').innerHTML = data.timeline.map(item => 
+            `<div class="timeline-item"><span class="date">${item.date}</span><p>${item.text}</p></div>`
+          ).join('');
+        }
+      })
+      .catch(err => console.log("Affichage par défaut :", err));
+  </script>
 
 </body>
 </html>

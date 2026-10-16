@@ -1,0 +1,23 @@
+{
+  "hero_title": "Préserver le cadre de vie et la biodiversité à Maisons-Laffitte",
+  "hero_subtitle": "Agir pour le Centre, la Zone Pavillonnaire et le Vieux Maisons. Soutenir un urbanisme harmonieux, durable et respectueux de l'environnement.",
+  "about_title": "Qui sommes-nous ?",
+  "about_text": "Créée en 2021, l'association Qualité de Ville – Maisons-Laffitte rassemble les riverains et habitants soucieux de protéger leur cadre de vie et leur environnement.",
+  "features": [
+    {
+      "icon": "🌳",
+      "title": "Biodiversité & Arbres",
+      "description": "Protection des espaces verts, préservation des arbres et soutien aux projets de végétalisation urbaine."
+    },
+    {
+      "icon": "🏛️",
+      "title": "Patrimoine & Urbanisme",
+      "description": "Veille attentive sur les évolutions du PLU et propositions d'alternatives face à la densification excessive."
+    },
+    {
+      "icon": "🤝",
+      "title": "Défense des Riverains",
+      "description": "Représentation des habitants auprès des collectivités publiques et accompagnement sur les projets d'aménagement."
+    }
+  ]
+}

@@ -110,6 +110,29 @@
       <p>&copy; 2026 Qualité de Ville Maisons-Laffitte. Tous droits réservés.</p>
     </div>
   </footer>
+  <!-- Script d'injection Decap CMS -->
+  <script>
+    fetch('data/actions.json')
+      .then(res => res.json())
+      .then(data => {
+        if (data.title) document.getElementById('actions-page-title').textContent = data.title;
+        if (data.subtitle) document.getElementById('actions-page-subtitle').textContent = data.subtitle;
+
+        if (data.actions_list && data.actions_list.length) {
+          document.getElementById('actions-container').innerHTML = data.actions_list.map(act => `
+            <article class="action-card">
+              <div class="action-icon">${act.icon || '📌'}</div>
+              <div class="action-details">
+                <span class="action-badge">${act.badge || 'Action'}</span>
+                <h2>${act.title}</h2>
+                <p>${act.description}</p>
+              </div>
+            </article>
+          `).join('');
+        }
+      })
+      .catch(err => console.log("Affichage statique par défaut :", err));
+  </script>
 
 </body>
 </html>
