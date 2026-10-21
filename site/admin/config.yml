@@ -32,7 +32,7 @@ collections:
           - { label: "Titre principal", name: "title", widget: "string" }
           - { label: "Sous-titre", name: "subtitle", widget: "string" }
           - { label: "Titre de section (Qui sommes-nous ?)", name: "about_title", widget: "string" }
-          - { label: "Contenu (Qui sommes-nous ?)", name: "about_content", widget: "html" }
+          - { label: "Contenu (Qui sommes-nous ?)", name: "about_content", widget: "markdown" }
           - label: "Nos Objectifs"
             name: "objectives"
             widget: "list"
